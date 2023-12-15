@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+
+   
+
+</head>
+<body>
+    <form action="#" method="get" onsubmit="logFormData(event)">
+    <h3>BOOK A CALL</h3>
+    <label for="name">Name:</label><br>
+    <input type="text" id="Name" name="Name"style="width:150 pix"><br>
+    <label for="email">Email:</label><br>
+    <input type="email"id="email"><br>
+    <label for="phone">Phone:</label><br>
+    <input type="tel"id="phone"><br><br>
+     <input type="submit"value="SUBMIT"style="padding: 1px 1px;font-size:20px;text-align="center";"width=20cm";background-color:dodgerblue;>;
+     </form>
+
+     <script>
+       function logFormData(event){
+    event.preventDefault();
+    const name=document.getElementById("Name").value;
+    const email=document.getElementById("email").value;
+    const phone=document.getElementById("phone").value;
+
+    
+   let user_records=JSON.parse(localStorage.getItem("users"))||[];
+const newrecords={
+        "name":name,
+        "email":email,
+        "phone":phone
+
+    };
+    user_records.push(newrecords);
+    localStorage.setItem("users",JSON.stringify(user_records));
+    console.log(JSON.parse(localStorage.getItem("users")));
+    }
+        
+        </script>
+        
+        </body>
+        </html>
